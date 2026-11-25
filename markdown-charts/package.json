@@ -1,0 +1,10 @@
+{
+  "name": "markdown-charts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vega-Lite specs to theme-aware SVGs for Markdown reports (Claude Code skill).",
+  "dependencies": {
+    "vega": "5.33.1",
+    "vega-lite": "5.23.0"
+  }
+}

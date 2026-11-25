@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Costs flattened while prices kept rising",
+    "subtitle": ["Example data: index, 2015 = 100", "Source line goes here"]
+  },
+  "width": 460, "height": 240,
+  "data": { "values": [
+    {"year": 2015, "series": "Prices", "v": 100}, {"year": 2017, "series": "Prices", "v": 108},
+    {"year": 2019, "series": "Prices", "v": 117}, {"year": 2021, "series": "Prices", "v": 129},
+    {"year": 2023, "series": "Prices", "v": 146}, {"year": 2025, "series": "Prices", "v": 155},
+    {"year": 2015, "series": "Costs", "v": 100},  {"year": 2017, "series": "Costs", "v": 104},
+    {"year": 2019, "series": "Costs", "v": 106},  {"year": 2021, "series": "Costs", "v": 105},
+    {"year": 2023, "series": "Costs", "v": 107},  {"year": 2025, "series": "Costs", "v": 106}
+  ]},
+  "encoding": {
+    "x": { "field": "year", "type": "quantitative", "title": null,
+           "scale": { "domain": [2015, 2027] },
+           "axis": { "format": "d", "values": [2015, 2017, 2019, 2021, 2023, 2025], "grid": false } },
+    "y": { "field": "v", "type": "quantitative", "title": null,
+           "scale": { "domain": [0, 170] }, "axis": { "tickCount": 4 } },
+    "color": { "field": "series", "type": "nominal", "title": null,
+               "scale": { "domain": ["Prices", "Costs"] } }
+  },
+  "layer": [
+    { "mark": "line" },
+    { "mark": "point" },
+    { "transform": [{ "filter": "datum.year === 2025" }],
+      "mark": { "type": "text", "align": "left", "dx": 8, "fontWeight": 600 },
+      "encoding": { "text": { "field": "v", "type": "quantitative", "format": ".0f" },
+                    "color": { "value": "#52514e" } } }
+  ]
+}

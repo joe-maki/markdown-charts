@@ -1,0 +1,22 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "March was the busiest month",
+    "subtitle": ["Example data: orders per month, first half of the year", "Source line goes here"]
+  },
+  "width": 460, "height": 220,
+  "data": { "values": [
+    {"month": "Jan", "n": 412}, {"month": "Feb", "n": 468}, {"month": "Mar", "n": 731},
+    {"month": "Apr", "n": 590}, {"month": "May", "n": 544}, {"month": "Jun", "n": 503}
+  ]},
+  "encoding": {
+    "x": { "field": "month", "type": "ordinal", "sort": null, "title": null,
+           "axis": { "labelAngle": 0, "labelColor": "#52514e" } },
+    "y": { "field": "n", "type": "quantitative", "axis": null }
+  },
+  "layer": [
+    { "mark": "bar" },
+    { "mark": { "type": "text", "dy": -8, "baseline": "bottom" },
+      "encoding": { "text": { "field": "n", "type": "quantitative", "format": ",.0f" } } }
+  ]
+}
